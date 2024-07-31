@@ -1,0 +1,21 @@
+{
+    "name": "stronger",
+    "short_name": "stronger",
+    "version": "1.0.0.0",
+    "manifest_version": 3,
+    "description": "make strong tag stronger",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*",  
+                "http://*/*"
+            ],
+            "js": [
+                "main.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "activeTab"
+    ]
+}

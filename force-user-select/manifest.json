@@ -1,0 +1,21 @@
+{
+    "name": "force user-select",
+    "short_name": "force user-select",
+    "version": "1.0.0.0",
+    "manifest_version": 3,
+    "description": "何としてもuser-selectができるようにする",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*",  
+                "http://*/*"
+            ],
+            "js": [
+                "main.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "activeTab"
+    ]
+}
