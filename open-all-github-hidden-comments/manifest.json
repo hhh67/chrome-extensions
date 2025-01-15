@@ -3,6 +3,7 @@
   "name": "Open All GitHub Hidden Comments",
   "version": "1.0",
   "permissions": ["scripting", "activeTab"],
+
   "action": {
     "default_popup": "popup.html"
   },
