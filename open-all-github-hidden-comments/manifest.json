@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Script Executor",
+  "name": "Open All GitHub Hidden Comments",
   "version": "1.0",
   "permissions": ["scripting", "activeTab"],
   "action": {
