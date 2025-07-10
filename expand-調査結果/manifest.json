@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "expand-調査結果",
+  "version": "1.0.0",
+  "description": "aria-labelが'開発チームによる調査結果'であるdiv要素のmax-heightを100%に上書きし、その親要素のmax-heightを無効化します",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["activeTab"]
+}

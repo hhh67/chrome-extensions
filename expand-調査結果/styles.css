@@ -1,0 +1,16 @@
+/* aria-labelが'開発チームによる調査結果'であるdiv要素のmax-heightを100%に設定 */
+div[aria-label="開発チームによる調査結果"] {
+  max-height: 100% !important;
+  overflow-y: auto !important;
+}
+
+/* その親要素のmax-heightを無効化（:has()セレクタを使用） */
+div:has(> div[aria-label="開発チームによる調査結果"]) {
+  max-height: none !important;
+}
+
+/* 親要素向けの追加スタイル（JavaScriptで適用されたクラスを使用） */
+.expand-research-result-parent {
+  max-height: none !important;
+  overflow: visible !important;
+}
