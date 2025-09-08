@@ -70,3 +70,14 @@ observer.observe(document.body, {
 });
 
 console.log("expand-調査結果: Chrome拡張が読み込まれました");
+
+// Control + bのショートカットをブロックする
+document.addEventListener(
+  "keydown",
+  function (e) {
+    if (e.ctrlKey && e.key.toLowerCase() === "b") {
+      e.stopImmediatePropagation();
+    }
+  },
+  true
+);
