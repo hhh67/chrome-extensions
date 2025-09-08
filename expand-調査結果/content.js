@@ -26,11 +26,47 @@ function adjustMaxHeight() {
   }
 }
 
+// markdown preview要素のmax-heightを調整する関数
+function adjustMarkdownPreviewHeight() {
+  // aria-labelが'Preview of markdown for control 開発チームによる調査結果'であるdiv要素を検索
+  const markdownPreviewElement = document.querySelector(
+    'div[aria-label="Preview of markdown for control 開発チームによる調査結果"]'
+  );
+
+  if (markdownPreviewElement) {
+    console.log("expand-調査結果: markdown preview要素が見つかりました");
+
+    // 対象要素のmax-heightを100%に設定
+    markdownPreviewElement.style.maxHeight = "100%";
+    markdownPreviewElement.style.setProperty("max-height", "100%", "important");
+
+    // 親要素のmax-heightを無効化
+    const parentElement = markdownPreviewElement.parentElement;
+    if (parentElement) {
+      parentElement.style.maxHeight = "none";
+      parentElement.style.setProperty("max-height", "none", "important");
+      // CSSで使用するクラスを追加
+      parentElement.classList.add("expand-markdown-preview-parent");
+      console.log(
+        "expand-調査結果: markdown preview親要素のmax-heightを無効化しました"
+      );
+    }
+
+    console.log(
+      "expand-調査結果: markdown preview要素のmax-heightを100%に設定しました"
+    );
+  }
+}
+
 // ページ読み込み完了時に実行
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", adjustMaxHeight);
+  document.addEventListener("DOMContentLoaded", function () {
+    adjustMaxHeight();
+    adjustMarkdownPreviewHeight();
+  });
 } else {
   adjustMaxHeight();
+  adjustMarkdownPreviewHeight();
 }
 
 // DOM変更を監視して動的に変更される要素にも対応
@@ -59,7 +95,10 @@ const observer = new MutationObserver(function (mutations) {
 
   if (shouldCheck) {
     // 少し遅延してから実行（DOM変更の完了を待つ）
-    setTimeout(adjustMaxHeight, 100);
+    setTimeout(function () {
+      adjustMaxHeight();
+      adjustMarkdownPreviewHeight();
+    }, 100);
   }
 });
 
